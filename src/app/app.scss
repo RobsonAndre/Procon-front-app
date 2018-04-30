@@ -1,0 +1,131 @@
+/* Vars */
+    /* color */
+        /* background */
+        $bg-color-primary : #000000;
+        $bg-color-second  : #00002A;
+        $bg-color-third   : #FFFFFF;
+        /* font */
+        $ft-color-primary : #FFFFFF;
+        $ft-color-second  : #F9F9F9;
+        $ft-color-third   : #F1F1F1;
+        /* border */
+        $bd-color-primary : #2C4F6F;
+        $bd-color-second  : #4C6F8F;
+        $bd-color-third   : #6C8FAF;
+    /* /color */
+/* /Vars */
+/* /Geral - Toda a aplicacao*/
+    /*toolbar */
+    .toolbar .toolbar-background {
+        background-color: $bg-color-primary;
+    }
+    .toolbar .toolbar-title{
+        color: $ft-color-primary;
+        font-family: 'Poiret One',  sans-serif;
+        font-weight: 600;
+        text-align: center;
+    }
+    .toolbar .toolbar-background-footer{
+        background-color: $bg-color-primary;
+        padding: 10px;
+    }
+    .toolbar .disable-hover{
+        background-color: $bg-color-second;
+        color:$ft-color-primary
+    }
+    .toolbar button{
+        background-color: $bg-color-primary !important;
+        color: $ft-color-second;
+    }
+
+    .black-shadow{
+        /**/
+        -webkit-box-shadow: 4px 4px 4px -1px rgba(0,0,0,0.5);
+           -moz-box-shadow: 4px 4px 4px -1px rgba(0,0,0,0.5);
+                box-shadow: 4px 4px 4px -1px rgba(0,0,0,0.5);
+     /**/
+    }
+    /* /toolbar */
+
+    /* App */
+    .app{
+        margin:  0px;
+        padding: 0px;
+        background: $bg-color-third;
+    }
+/* /Geral */
+
+/* Local  - Apenas para app.html*/
+.menu-card{
+    margin: 0px !important;
+    margin-bottom: 5px !important;
+    padding: 0px !important;
+    background: $bg-color-second;
+    height: 180px;
+    width: 100% !important;
+    border-bottom: 2px solid $bd-color-second;
+    color:$ft-color-primary;
+}
+.menu-card .row{
+    margin: 0px;
+    padding: 0px;
+}
+.col-menu-card-img{
+    margin-top: 15px;
+    text-align: center;
+    border: 0px solid $bg-color-primary;
+}
+.menu-card-img{
+    width: 100px;
+    border:1px solid $bd-color-second;
+}
+.col-menu-card-txt{
+    margin: 0px;
+    margin-top: 5px;
+    text-align: center;
+    border: 0px solid $bg-color-primary;
+}
+.col-menu-card-txt h1{
+    font-family: 'Poiret One',  sans-serif;
+    color: $ft-color-second;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 3px 7px !important;
+
+    display: block;
+    display: -webkit-box;
+    height: auto;
+    line-height: 1.4;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 2px 2px $bg-color-primary;
+}
+
+.col-menu-card-txt h2{
+    font-family: 'Poiret One',  sans-serif;
+    color: $ft-color-third;
+    font-size: 14px;
+    margin: 0px 7px !important;
+
+    display: block;
+    display: -webkit-box;
+    height: auto;
+    margin: 3px auto;
+    line-height: 1.4;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.row-menu-list{
+    border: 0px solid $bg-color-primary;
+    padding: 5px;
+}
+
+.row-menu-list ion-list{
+    border: 0px solid $bg-color-primary;
+    width: 100%;
+}
+/* /Local */
