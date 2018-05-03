@@ -4,8 +4,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+
 import { UtilProvider } from '../providers/util/util';
+import { LoginPage } from '../pages/login/login';
+import { ContaPage } from '../pages/conta/conta';
+import { TermoPage } from '../pages/termo/termo';
+import { PoliticaPage } from '../pages/politica/politica';
+import { IntroPage } from '../pages/intro/intro';
 
 @Component({
   templateUrl: 'app.html',
@@ -16,7 +21,8 @@ import { UtilProvider } from '../providers/util/util';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  //rootPage: any = HomePage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -30,11 +36,12 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home',                    component: HomePage },
-      { title: 'Minha Conta',             component: HomePage },
-      { title: 'Termo de Uso',            component: HomePage },
-      { title: 'Política de Privacidade', component: HomePage },
-      { title: 'List',                    component: ListPage }
+      { title: 'Login',                   component: LoginPage    },
+      { title: 'Intro',                   component: IntroPage    },
+      { title: 'Home',                    component: HomePage     },
+      { title: 'Minha Conta',             component: ContaPage    },
+      { title: 'Termo de Uso',            component: TermoPage    },
+      { title: 'Política de Privacidade', component: PoliticaPage }
     ];
 
   }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LoadingController, ToastController } from 'ionic-angular';
+import { LoadingController, ToastController, NavController } from 'ionic-angular';
 
 /*
   Generated class for the UtilProvider provider.
@@ -46,5 +46,5 @@ export class UtilProvider {
 
     toast.present(toast);
   }
-
+  
 }
