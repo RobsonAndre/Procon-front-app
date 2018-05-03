@@ -34,7 +34,6 @@ export class LoginPage {
       email: 'robson_x@yahoo.com.br',
       senha: 'senha@12'
     }
-    
   }
 
   public validalogin(){
