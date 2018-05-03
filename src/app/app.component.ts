@@ -11,6 +11,7 @@ import { ContaPage } from '../pages/conta/conta';
 import { TermoPage } from '../pages/termo/termo';
 import { PoliticaPage } from '../pages/politica/politica';
 import { IntroPage } from '../pages/intro/intro';
+import { LocalStorageProvider } from '../providers/local-storage/local-storage';
 
 @Component({
   templateUrl: 'app.html',
@@ -30,7 +31,8 @@ export class MyApp {
     public platform: Platform, 
     public statusBar: StatusBar, 
     public splashScreen: SplashScreen,
-    public utilProvider: UtilProvider
+    public utilProvider: UtilProvider,
+    public localStorageProvider: LocalStorageProvider
   ) {
     this.initializeApp();
 
@@ -49,6 +51,12 @@ export class MyApp {
   public abreToast(msg){
     this.utilProvider.showToast(msg);
     console.log(msg);
+  }
+
+  public logOut(){
+    console.log("Sair do App");
+    this.localStorageProvider.cleanUserData();
+    this.nav.setRoot(LoginPage);
   }
 
   initializeApp() {

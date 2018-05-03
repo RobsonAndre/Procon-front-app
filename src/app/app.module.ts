@@ -19,6 +19,7 @@ import { PoliticaPage } from '../pages/politica/politica';
 import { CodigoPage } from '../pages/codigo/codigo';
 import { ProcessosPage } from '../pages/processos/processos';
 import { IntroPage } from '../pages/intro/intro';
+import { LocalStorageProvider } from '../providers/local-storage/local-storage';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { IntroPage } from '../pages/intro/intro';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UtilProvider,
-    LoginProvider
+    LoginProvider,
+    LocalStorageProvider
   ]
 })
 export class AppModule {}
