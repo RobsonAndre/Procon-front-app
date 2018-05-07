@@ -1,9 +1,10 @@
 /* Vars */
     /* color */
         /* background */
-        $bg-color-primary : #000000;
-        $bg-color-second  : #00002A;
+        $bg-color-primary : #000051;
+        $bg-color-second  : #1a237e;
         $bg-color-third   : #FFFFFF;
+        $bg-color-fourth  : #F5F6F8;
         /* font */
         $ft-color-primary : #FFFFFF;
         $ft-color-second  : #F9F9F9;
@@ -12,6 +13,7 @@
         $bd-color-primary : #2C4F6F;
         $bd-color-second  : #4C6F8F;
         $bd-color-third   : #6C8FAF;
+        $bd-color-fourth  : rgba(249,249,249,0.8);
     /* /color */
 /* /Vars */
 /* /Geral - Toda a aplicacao*/
@@ -21,8 +23,9 @@
     }
     .toolbar .toolbar-title{
         color: $ft-color-primary;
-        font-family: 'Poiret One',  sans-serif;
+        font-family: 'Open Sans',  sans-serif;
         font-weight: 600;
+        font-size: 18px;
         text-align: center;
     }
     .toolbar .toolbar-background-footer{
@@ -51,19 +54,18 @@
     .app{
         margin:  0px;
         padding: 0px;
-        background: $bg-color-third;
+        background: $bg-color-fourth;
     }
 /* /Geral */
 
 /* Local  - Apenas para app.html*/
 .menu-card{
     margin: 0px !important;
-    margin-bottom: 5px !important;
+    //margin-bottom: 5px !important;
     padding: 0px !important;
-    background: $bg-color-second;
+    background: $bg-color-primary;
     height: 180px;
     width: 100% !important;
-    border-bottom: 2px solid $bd-color-second;
     color:$ft-color-primary;
 }
 .menu-card .row{
@@ -77,7 +79,7 @@
 }
 .menu-card-img{
     width: 100px;
-    border:1px solid $bd-color-second;
+    border: 3px solid $bd-color-fourth;
 }
 .col-menu-card-txt{
     margin: 0px;
@@ -86,10 +88,10 @@
     border: 0px solid $bg-color-primary;
 }
 .col-menu-card-txt h1{
-    font-family: 'Poiret One',  sans-serif;
+    font-family: 'Open Sans',  sans-serif;
     color: $ft-color-second;
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 500;
     margin: 3px 7px !important;
 
     display: block;
@@ -104,9 +106,10 @@
 }
 
 .col-menu-card-txt h2{
-    font-family: 'Poiret One',  sans-serif;
+    font-family: 'Open Sans',  sans-serif;
     color: $ft-color-third;
     font-size: 14px;
+    font-weight: 300;
     margin: 0px 7px !important;
 
     display: block;
@@ -121,11 +124,22 @@
 }
 .row-menu-list{
     border: 0px solid $bg-color-primary;
-    padding: 5px;
+    //padding: 5px;
+    background-color: $bg-color-fourth;
 }
 
 .row-menu-list ion-list{
     border: 0px solid $bg-color-primary;
     width: 100%;
+}
+
+.row-menu-list .item-ios {
+    padding-left: 0px;
+    background-color: $bg-color-fourth;
+}
+
+.row-menu-list .item-ios .item-inner {
+    font-size: 14px;
+    padding-left: 16px;
 }
 /* /Local */

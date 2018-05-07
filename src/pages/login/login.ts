@@ -4,6 +4,8 @@ import { LoginProvider } from '../../providers/login/login';
 import { LocalStorageProvider } from '../../providers/local-storage/local-storage';
 import { UtilProvider } from '../../providers/util/util';
 import { HomePage } from '../home/home';
+import { ModalController } from 'ionic-angular';
+import { CadastroPage } from '../cadastro/cadastro';
 
 /**
  * Generated class for the LoginPage page.
@@ -27,7 +29,8 @@ export class LoginPage {
     public navParams: NavParams,
     public utilProvider: UtilProvider,
     public loginProvider: LoginProvider,
-    public localStorageProvider: LocalStorageProvider
+    public localStorageProvider: LocalStorageProvider,
+    public modalCtrl: ModalController
   ) {
     //Obj login
     this.login = {
@@ -65,6 +68,11 @@ export class LoginPage {
     if(this.user.uid!=0){
       this.navCtrl.setRoot(HomePage);
     }
+  }
+
+  public criaConta() {
+    let modal = this.modalCtrl.create(CadastroPage);
+    modal.present();
   }
 
   ionViewDidEnter() {

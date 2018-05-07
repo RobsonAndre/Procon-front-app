@@ -20,6 +20,7 @@ import { CodigoPage } from '../pages/codigo/codigo';
 import { ProcessosPage } from '../pages/processos/processos';
 import { IntroPage } from '../pages/intro/intro';
 import { LocalStorageProvider } from '../providers/local-storage/local-storage';
+import { CadastroPage } from '../pages/cadastro/cadastro';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LocalStorageProvider } from '../providers/local-storage/local-storage';
     PoliticaPage,
     CodigoPage,
     ProcessosPage,
-    IntroPage
+    IntroPage,
+    CadastroPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import { LocalStorageProvider } from '../providers/local-storage/local-storage';
     PoliticaPage,
     CodigoPage,
     ProcessosPage, 
-    IntroPage
+    IntroPage,
+    CadastroPage
   ],
   providers: [
     StatusBar,

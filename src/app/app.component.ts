@@ -12,6 +12,7 @@ import { TermoPage } from '../pages/termo/termo';
 import { PoliticaPage } from '../pages/politica/politica';
 import { IntroPage } from '../pages/intro/intro';
 import { LocalStorageProvider } from '../providers/local-storage/local-storage';
+import { CadastroPage } from '../pages/cadastro/cadastro';
 
 @Component({
   templateUrl: 'app.html',
@@ -43,7 +44,8 @@ export class MyApp {
       { title: 'Home',                    component: HomePage     },
       { title: 'Minha Conta',             component: ContaPage    },
       { title: 'Termo de Uso',            component: TermoPage    },
-      { title: 'Política de Privacidade', component: PoliticaPage }
+      { title: 'Política de Privacidade', component: PoliticaPage },
+      { title: 'Cadastro',                component: CadastroPage }
     ];
 
   }

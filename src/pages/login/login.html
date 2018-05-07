@@ -19,7 +19,7 @@
   <div class="card-login">
     <div class="row row-card-login">
       <div class="col col-card-login">
-        <img class="circle login-card-img black-shadow" [src]="'assets/imgs/logo/logo.png'"/>
+        <img class="circle login-card-img black-shadow" [src]="'assets/imgs/logo/logo.png'" />
       </div>
     </div>
   </div>
@@ -59,8 +59,9 @@
       <div class="col col-login-footer-left">
         <a href="#!">Recuperar Senha</a>
       </div>
+
       <div class="col col-login-footer-right">
-        <a href="#!">Criar uma Conta</a>
+        <a name="btn_cadastro" (click)="criaConta()">Criar uma Conta</a>
       </div>
     </div>
   </div>
