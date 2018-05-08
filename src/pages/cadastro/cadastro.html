@@ -34,11 +34,11 @@
           </div>
 
           <div class='row'>
-              <div class='input-field col'>
-                <input class='validate' type='number' name='cpf' id='cpf' [(ngModel)]="cadastro.cpf" />
-                <label for='cpf'>CPF</label>
-              </div>
+            <div class='input-field col'>
+              <input class='validate' type='number' name='cpf' id='cpf' [(ngModel)]="cadastro.cpf" />
+              <label for='cpf'>CPF</label>
             </div>
+          </div>
 
           <div class='row'>
             <div class='input-field col'>
@@ -55,11 +55,19 @@
           </div>
 
           <div class='row'>
-              <div class='input-field col'>
-                <input class='validate' type='password' name='senha_validacao' id='senha_validacao' [(ngModel)]="cadastro.senha_validacao" />
-                <label for='senha_validacao'>Senha</label>
-              </div>
+            <div class='input-field col'>
+              <input class='validate' type='password' name='senha_validacao' id='senha_validacao' [(ngModel)]="cadastro.senha_validacao"
+              />
+              <label for='senha_validacao'>Senha</label>
             </div>
+          </div>
+
+          <div class='row'>
+            <div class='col'>
+              <input class="validate" type="checkbox" id="termos" name="termos" [(ngModel)]="cadastro.termos" />
+              <label for="termos">Li e entendi o Termo de Uso e Politica de Privacidade.</label>
+            </div>
+          </div>
 
           <div class='row'>
             <div class='col'>

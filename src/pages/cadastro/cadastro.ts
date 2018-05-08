@@ -20,13 +20,34 @@ export class CadastroPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
-    public viewCtrl:ViewController
+    public viewCtrl: ViewController
   ) {
-    this.cadastro = {};
+    this.cadastro = {
+      termos: false
+    };
   }
 
   dismiss() {
     this.viewCtrl.dismiss();
+  }
+
+  limparString(v) {
+    return v.replace(/[\. ,:-]+/g, "");
+  }
+
+  public realizaCadastro() {
+    let dadosCadastro = {
+      nome: this.limparString(this.cadastro.nome),
+      cpf: this.cadastro.cpf,
+      email: this.limparString(this.cadastro.email),
+      senha: this.cadastro.senha,
+      senha_validacao: this.cadastro.senha_validacao,
+      termos: this.cadastro.termos
+    }
+
+    console.log(this.cadastro);
+    console.log('a',dadosCadastro);
+    this.dismiss();
   }
 
   ionViewDidLoad() {
