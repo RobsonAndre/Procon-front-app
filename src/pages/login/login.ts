@@ -42,7 +42,7 @@ export class LoginPage {
         let obj: any = data;
         if (obj.success) {
           //login ok!
-          this.user.uid    = obj.uid;
+          this.user.uid    = obj.results.uid;
           this.user.token  = obj.token;
           this.user.nome   = obj.nome;
           this.user.imagem = obj.imagem;
