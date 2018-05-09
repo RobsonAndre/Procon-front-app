@@ -21,6 +21,11 @@ page-login {
         .app {
             background-color: #d0d4f4;
         }
+        button {
+            text-transform: capitalize !important;
+            padding: 0 !important;
+            font-size: 14px !important;
+        }
     /* /Geral */
 
     /* Card */
@@ -30,7 +35,7 @@ page-login {
             margin-bottom: 5px !important;
             padding: 0px !important;
             //background: $bg-color-third;
-            height: 200px;
+            height: 250px;
             width: 100% !important;
             //border-bottom: 2px solid $bd-color-second;
             color:$ft-color-primary;
@@ -86,7 +91,7 @@ page-login {
             text-align: right;
             margin-right: 0px;
             //border: 1px solid $bd-color-primary;
-            padding: 0 !important;
+            //padding: 0 !important;
         }
         .input-field{
             font-size: 32px;
@@ -95,7 +100,7 @@ page-login {
             background-color: rgba(255, 255, 255, 0.8);
         }
         .card-formulario .card-content {
-            padding: 24px 12px;
+            padding: 24px 12px 0;
         }
         input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default) {
             height: 1rem;
