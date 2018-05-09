@@ -28,14 +28,14 @@
 
           <div class='row'>
             <div class='input-field col'>
-              <input class='validate' type='text' name='nome' id='nome' [(ngModel)]="cadastro.nome" />
+              <input class='validate' type='text' name='nome' id='nome' [(ngModel)]="cadastro.nome" minlength="6" />
               <label for='nome'>Nome</label>
             </div>
           </div>
 
           <div class='row'>
             <div class='input-field col'>
-              <input class='validate' type='number' name='cpf' id='cpf' [(ngModel)]="cadastro.cpf" />
+              <input class='validate' type="number" name='cpf' id='cpf' [(ngModel)]="cadastro.cpf" maxlength="11" oninput="this.value=this.value.slice(0,this.maxLength)" />
               <label for='cpf'>CPF</label>
             </div>
           </div>
@@ -49,15 +49,14 @@
 
           <div class='row'>
             <div class='input-field col'>
-              <input class='validate' type='password' name='senha' id='senha' [(ngModel)]="cadastro.senha" />
+              <input class='validate' type='password' name='senha' id='senha' [(ngModel)]="cadastro.senha" maxlength="15" minlength="8" />
               <label for='senha'>Senha</label>
             </div>
           </div>
 
           <div class='row'>
             <div class='input-field col'>
-              <input class='validate' type='password' name='senha_validacao' id='senha_validacao' [(ngModel)]="cadastro.senha_validacao"
-              />
+              <input class='validate' type='password' name='senha_validacao' id='senha_validacao' [(ngModel)]="cadastro.senha_validacao" maxlength="15" minlength="8" />
               <label for='senha_validacao'>Senha</label>
             </div>
           </div>
@@ -71,7 +70,7 @@
 
           <div class='row'>
             <div class='col'>
-              <button type='submit' name='btn_cadastro' class='col s12 btn btn-large waves-effect indigo' (click)="realizaCadastro()">Cadastrar</button>
+              <button type='submit' name='btn-cadastro' class='col s12 btn btn waves-effect indigo' (click)="realizaCadastro()">Cadastrar</button>
             </div>
           </div>
 
