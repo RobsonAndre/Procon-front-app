@@ -1,0 +1,38 @@
+<!--
+  Generated template for the RegistroReclamacaoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nova Reclamação</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-divider color="light">Estabelecimento</ion-item-divider>
+    <ion-item>
+      <ion-select [(ngModel)]="reclamacao.estabelecimento" (ionChange)="carregarOpcao($event);" >
+          <ion-option *ngFor="let x of estabelecimentos" [value]="x.tipo" [selected]="x.tipo == 0">{{x.descricao}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="reclamacao.estabelecimento">
+    <ion-item-divider color="light">Reclamação</ion-item-divider>
+    <ion-item>
+      <ion-select [(ngModel)]="reclamacao.tipo" (ionChange)="carregarOpcao($event);">
+        <ion-option *ngFor="let x of reclamacoes" [value]="x.tipo" [selected]="x.tipo == 0">{{x.descricao}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <form action="">
+
+  </form>
+</ion-content>

@@ -13,6 +13,7 @@ import { PoliticaPage } from '../pages/politica/politica';
 import { IntroPage } from '../pages/intro/intro';
 import { LocalStorageProvider } from '../providers/local-storage/local-storage';
 import { CadastroPage } from '../pages/cadastro/cadastro';
+import { RegistroReclamacaoPage } from '../pages/registro-reclamacao/registro-reclamacao';
 
 @Component({
   templateUrl: 'app.html',
@@ -45,7 +46,7 @@ export class MyApp {
       { title: 'Minha Conta',             component: ContaPage    },
       { title: 'Termo de Uso',            component: TermoPage    },
       { title: 'Política de Privacidade', component: PoliticaPage },
-      { title: 'Cadastro',                component: CadastroPage }
+      { title: 'Registro de Reclamação',  component: RegistroReclamacaoPage }
     ];
 
   }

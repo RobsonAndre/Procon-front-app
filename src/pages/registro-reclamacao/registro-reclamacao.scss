@@ -1,0 +1,20 @@
+page-registro-reclamacao {
+    /* font */   
+    $ft-color-primary  : #183473;
+    $ft-color-second   : #1a237e;
+    $ft-color-third   : #2B0062;
+
+    ion-select {
+        max-width: 100%;
+    }
+    .list-ios {
+        //margin: -1px 0 32px;
+        margin: -1px 0 0;
+    }
+    .item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content {
+        border-color: #ccc !important;
+        background-color: #D9D9D9 !important;
+        }
+
+    
+}

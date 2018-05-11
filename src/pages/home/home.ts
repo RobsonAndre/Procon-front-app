@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { UtilProvider } from '../../providers/util/util';
+import { RegistroReclamacaoPage } from '../registro-reclamacao/registro-reclamacao';
 
 @Component({
   selector: 'page-home',
@@ -25,6 +26,10 @@ export class HomePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
+  }
+
+  public novaReclamacao() {
+    this.navCtrl.setRoot(RegistroReclamacaoPage);
   }
 
 }
