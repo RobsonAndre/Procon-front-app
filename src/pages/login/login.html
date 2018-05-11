@@ -19,7 +19,7 @@
   <div class="card-login">
     <div class="row row-card-login">
       <div class="col col-card-login">
-        <img class="circle login-card-img black-shadow" [src]="'assets/imgs/logo/logo.png'" />
+        <img class="circle login-card-img" [src]="'assets/imgs/logo/logo.png'"/>
       </div>
     </div>
   </div>
@@ -27,43 +27,46 @@
 
   <!-- Login -->
   <div class="container container-login">
-    <div class="row">
+    <ion-card class="card-formulario">
+      <ion-card-content>
+          <div class="row">
 
-      <form class="col" method="post">
-
-        <div class='row'>
-          <div class='input-field col'>
-            <input class='validate' type='email' name='email' id='email' [(ngModel)]="login.email" />
-            <label for='email'>E-mail</label>
-          </div>
-        </div>
-
-        <div class='row'>
-          <div class='input-field col'>
-            <input class='validate' type='password' name='password' id='password' [(ngModel)]="login.senha" />
-            <label for='password'>Senha</label>
-          </div>
-        </div>
-
-        <div class='row'>
-          <div class='col'>
-            <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo' (click)="validalogin()">Entrar</button>
-          </div>
-        </div>
-
-      </form>
-
-    </div>
-
-    <div class="row row-login-footer">
-      <div class="col col-login-footer-left">
-        <a href="#!">Recuperar Senha</a>
-      </div>
-
-      <div class="col col-login-footer-right">
-        <a name="btn_cadastro" (click)="criaConta()">Criar uma Conta</a>
-      </div>
-    </div>
+              <form class="col" method="post">
+        
+                <div class='row'>
+                  <div class='input-field col'>
+                    <input class='validate' type='email' name='email' id='email' [(ngModel)]="login.email" />
+                    <label for='email'>E-mail</label>
+                  </div>
+                </div>
+        
+                <div class='row'>
+                  <div class='input-field col'>
+                    <input class='validate' type='password' name='password' id='password' [(ngModel)]="login.senha" />
+                    <label for='password'>Senha</label>
+                  </div>
+                </div>
+        
+                <div class='row'>
+                  <div class='col'>
+                    <button type='submit' name='btn_login' class='col s12 btn waves-effect indigo' (click)="validalogin()">Entrar</button>
+                  </div>
+                </div>
+        
+              </form>
+        
+            </div>
+        
+            <div class="row row-login-footer">
+              <div class="col col-login-footer-left">
+                <button class="btn-flat">Recuperar Senha</button>
+              </div>
+              <div class="col col-login-footer-right">
+                <button class="btn-flat">Criar Conta</button>
+              </div>
+            </div>
+      </ion-card-content>
+    </ion-card>
   </div>
 
   <!-- /Login -->

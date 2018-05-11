@@ -2,13 +2,14 @@ page-login {
     /* Vars */
         /* background */
         $bg-color-primary : #1a237e;
-        $bg-color-second  : #283593;
-        $bg-color-third   : #3949ab;
+        $bg-color-second  : #303f9f;
+        $bg-color-third   : #3f51b5;
         
         /* font */
         $ft-color-primary : #A9CAA2;
         $ft-color-second  : #89CA82;
         $ft-color-third   : #49CA42;
+        $ft-color-gray    : #595959;
         
         /* border */
         $bd-color-primary : #e57373;
@@ -16,61 +17,95 @@ page-login {
         $bd-color-third   : #b71c1c;
     /* /Vars */
 
+    /* Geral */
+        .app {
+            background-color: #d0d4f4;
+        }
+        button {
+            text-transform: capitalize !important;
+            padding: 0 !important;
+            font-size: 14px !important;
+        }
+    /* /Geral */
+
     /* Card */
         .card-login{
             position: relative;
             margin: 0px !important;
             margin-bottom: 5px !important;
             padding: 0px !important;
-            background: $bg-color-second;
-            height: 200px;
+            //background: $bg-color-third;
+            height: 250px;
             width: 100% !important;
-            border-bottom: 2px solid $bd-color-second;
+            //border-bottom: 2px solid $bd-color-second;
             color:$ft-color-primary;
             /**/
-            background: url(../assets/imgs/bg/bg-login.jpg);
-            background-repeat: no-repeat;
-            background-position-x: center;
-            background-position-y: bottom;
-            background-size: cover;
-            resize: both;
+            // background: url(../assets/imgs/bg/bg-login.jpg);
+            // background-repeat: no-repeat;
+            // background-position-x: center;
+            // background-position-y: bottom;
+            // background-size: cover;
+            // resize: both;
             /**/
         }
         .row-card-login{
-            position: absolute;
-            width: 100%;
-            bottom: -55px;
-            border: 0px solid $bd-color-primary;
+            // position: absolute;
+            // width: 100%;
+            // //bottom: 15px;
+            // border: 0px solid $bd-color-primary;
             text-align: center;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
         }
+    /* /Card */
+     
+    /* Card Formulário */ 
         .login-card-img{
-            height: 120px;
-            width: 120px;
-            border: 5px solid $bd-color-second
-        }
-        
+            //max-height: 200px;
+            max-width: 150px;
+            // height: 120px;
+            // width: 120px;
+            // border: 5px solid $bd-color-second
+        }        
         .container-login{
             margin-top:30px; 
         }
+        ion-card-content .row:last-child, form .row:last-child {
+            margin-bottom: 0;
+        }
         .row-login-footer{
-            position: absolute;
-            bottom: 100;
-            width: 100%;
-            padding-right: 20px;
-            
+            // position: absolute;
+            // bottom: 100;
+            // width: 100%;
+            // //padding-right: 20px;           
         }
         .col-login-footer-left{
+            color: $ft-color-gray;
             text-align: left;
             margin-left: 0px;
             //border: 1px solid $bd-color-primary;
         }
         .col-login-footer-right{
+            color: $ft-color-gray;
             text-align: right;
             margin-right: 0px;
             //border: 1px solid $bd-color-primary;
+            //padding: 0 !important;
         }
         .input-field{
             font-size: 32px;
         }
-    /* /Card */
+        .card-formulario {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .card-formulario .card-content {
+            padding: 24px 12px 0;
+        }
+        input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default) {
+            height: 1rem;
+            margin: 0;
+        }
+
+    /* /Card Formulário */
 }
