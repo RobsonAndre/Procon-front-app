@@ -22,6 +22,7 @@ import { IntroPage } from '../pages/intro/intro';
 import { LocalStorageProvider } from '../providers/local-storage/local-storage';
 import { CadastroPage } from '../pages/cadastro/cadastro';
 import { RegistroReclamacaoPage } from '../pages/registro-reclamacao/registro-reclamacao';
+import { RegistroReclamacaoProvider } from '../providers/registro-reclamacao/registro-reclamacao';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { RegistroReclamacaoPage } from '../pages/registro-reclamacao/registro-re
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UtilProvider,
     LoginProvider,
-    LocalStorageProvider
+    LocalStorageProvider,
+    RegistroReclamacaoProvider
   ]
 })
 export class AppModule {}

@@ -11,10 +11,9 @@ page-registro-reclamacao {
         //margin: -1px 0 32px;
         margin: -1px 0 0;
     }
-    .item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content {
-        border-color: #ccc !important;
-        background-color: #D9D9D9 !important;
-        }
+    .alert-ios [aria-checked=true] .alert-radio-label {
+        color:  white !important;
+    }
 
     
 }

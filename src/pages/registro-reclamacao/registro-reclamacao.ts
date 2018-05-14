@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UtilProvider } from '../../providers/util/util';
+import { LocalStorageProvider } from '../../providers/local-storage/local-storage';
+import { RegistroReclamacaoProvider } from '../../providers/registro-reclamacao/registro-reclamacao';
 
 /**
  * Generated class for the RegistroReclamacaoPage page.
@@ -23,38 +25,49 @@ export class RegistroReclamacaoPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public utilProvider: UtilProvider
+    public utilProvider: UtilProvider,
+    public localStorageProvider: LocalStorageProvider,
+    public registroReclamacaoProvider: RegistroReclamacaoProvider
   ) {
-    this.reclamacao = {};
-    this.estabelecimentos = [
-      { tipo: 0, descricao: "Selecione o estabelecimento" },
-      { tipo: 1, descricao: "Estabelecimento financeiro/banco" },
-      { tipo: 2, descricao: "Cartório" },
-      { tipo: 999, descricao: "Outro" }
-    ];
-    this.reclamacoes = [
-      { tipo: 0, descricao: "Selecione a Reclamação" },
-      { tipo: 1, descricao: "Tempo de espera da fila de atendimento" },
-      { tipo: 2, descricao: "Produto vencido" },
-      { tipo: 999, descricao: "Outro" }
-    ]
+    this.reclamacao = {};    
+    this.carregarEstabelecimentos();
   }
 
+  //ionViewDidEnter
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegistroReclamacaoPage');
   }
 
-  public carregarOpcao(opcao: any) {
-    this.utilProvider.abreLoading();
-    if (opcao) {
-      console.log(this.reclamacao);
-    }
-    this.exibir();
+  carregarEstabelecimentos() {
+    this.registroReclamacaoProvider.getEstabelecimentos().subscribe(
+      data => {
+        let obj: any = data;
+        if(obj.success) {
+          this.estabelecimentos = obj.results;
+        } 
+      }
+    )
   }
 
-  public exibir() {
+  carregarReclamacoes(rec) {
+    this.registroReclamacaoProvider.getReclamacoes(rec).subscribe(
+      data => {
+        let obj: any = data;
+        if(obj.success) {
+          this.reclamacoes = obj.results.list;
+        } 
+      }
+    )
+  }
+
+  public carregarOpcao(opcao: any) {
+    this.utilProvider.abreLoading();
+    console.log(this.reclamacao);
+    if (this.reclamacao.estabelecimento) {
+      this.carregarReclamacoes(this.reclamacao.estabelecimento); 
+    }
     this.utilProvider.fechaLoading();
-    console.log("Novo select");
   }
 
 }

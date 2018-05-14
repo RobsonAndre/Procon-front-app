@@ -18,7 +18,8 @@
     <ion-item-divider color="light">Estabelecimento</ion-item-divider>
     <ion-item>
       <ion-select [(ngModel)]="reclamacao.estabelecimento" (ionChange)="carregarOpcao($event);" >
-          <ion-option *ngFor="let x of estabelecimentos" [value]="x.tipo" [selected]="x.tipo == 0">{{x.descricao}}</ion-option>
+          <ion-option selected disabled>Selecione um estabelecimento</ion-option>
+          <ion-option *ngFor="let x of estabelecimentos" [value]="x.uid">{{x.estabelecimento}}</ion-option>
       </ion-select>
     </ion-item>
   </ion-list>
@@ -27,12 +28,10 @@
     <ion-item-divider color="light">Reclamação</ion-item-divider>
     <ion-item>
       <ion-select [(ngModel)]="reclamacao.tipo" (ionChange)="carregarOpcao($event);">
-        <ion-option *ngFor="let x of reclamacoes" [value]="x.tipo" [selected]="x.tipo == 0">{{x.descricao}}</ion-option>
+          <ion-option selected disabled>Selecione o tipo de reclamação</ion-option>
+        <ion-option *ngFor="let x of reclamacoes" [value]="x.uid" [selected]="x.uid == 0">{{x.reclamacao}}</ion-option>
       </ion-select>
     </ion-item>
   </ion-list>
 
-  <form action="">
-
-  </form>
 </ion-content>
