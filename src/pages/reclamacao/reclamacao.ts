@@ -22,25 +22,29 @@ export class ReclamacaoPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public viewCtrl: ViewController,
-    public localStorageProvider: LocalStorageProvider
+    public viewCtrl: ViewController
   ) {
     this.reclamacao = {};
   }
 
   public preencherCampos() {
-    let dadosReclamacao = {
-      // nome: this.limparString(this.cadastro.nome),
-      // cpf: this.validaCPF(this.cadastro.cpf),
-      // email: this.limparString(this.cadastro.email),
-      // senha: this.cadastro.senha,
-      // senha_validacao: this.verificaSenha(this.cadastro.senha, this.cadastro.senha_validacao),
-      // termos: this.cadastro.termos
-    }
+    // let dadosReclamacao = {
+    //   banco: this.reclamacao.banco,
+    //   agencia: this.reclamacao.agencia,
+    //   data: this.reclamacao.data,
+    //   hora: this.substituirString(this.reclamacao.hora),
+    //   espera: this.reclamacao.espera,
+    //   atendido: this.reclamacao.atendido
+    //}
 
-    this.localStorageProvider.setDataReclamacao(this.reclamacao);
+    //this.localStorageProvider.setDataReclamacao(this.reclamacao);
     //console.log(this.reclamacao);
+    //console.log("dados",dadosReclamacao);
     this.dismissWithData(this.reclamacao);
+  }
+
+  substituirString(v) {
+    return v.replace(/[\. ,:-]+/g, "-");
   }
 
   dismissWithData(data) {

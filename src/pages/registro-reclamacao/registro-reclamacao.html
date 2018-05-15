@@ -37,14 +37,20 @@
   <ion-list *ngIf="reclamacao.data">
     <ion-item-divider color="light">Dados da Reclamação</ion-item-divider>
     <ion-item>
-      <button name='btn-dados' class='col s12 btn btn waves-effect indigo' (click)="abrirDados()">Exibir dados</button>
+      <button name='btn-dados' class='col s12 btn btn waves-effect indigo' (click)="abrirDados()">Editar dados</button>
     </ion-item>
   </ion-list>
 
-  <!-- <div class='row' *ngIf="reclamacao.estabelecimento">
-      <div class='col'>
-        <button name='btn-dados' class='col s12 btn btn waves-effect indigo' (click)="abrirDados()">Exibir dados</button>
-      </div>
-    </div> -->
+  <ion-list *ngIf="reclamacao.data">
+    <ion-item-divider color="light">Descrição</ion-item-divider>
+    <ion-item>
+      <ion-textarea placeholder="Descrição da reclamação" [(ngModel)]="reclamacao.descricao"></ion-textarea>
+    </ion-item>
+  </ion-list>
 
+  <div class='row' *ngIf="reclamacao.descricao">
+    <div class='col'>
+      <button type='submit' name='btn-reclamacao' class='col s12 btn btn waves-effect indigo' (click)="confirmarReclamacao()">Salvar reclamação</button>
+    </div>
+  </div>
 </ion-content>

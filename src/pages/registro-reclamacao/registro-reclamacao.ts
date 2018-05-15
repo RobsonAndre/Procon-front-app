@@ -28,7 +28,6 @@ export class RegistroReclamacaoPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public utilProvider: UtilProvider,
-    public localStorageProvider: LocalStorageProvider,
     public registroReclamacaoProvider: RegistroReclamacaoProvider,
     public modalCtrl: ModalController
   ) {
@@ -66,6 +65,7 @@ export class RegistroReclamacaoPage {
 
   carregarForm() {
     let modal = this.modalCtrl.create(ReclamacaoPage);
+    //console.log("rec before", this.reclamacao);
     modal.onDidDismiss(data => {
       this.reclamacao.data = data;
       console.log("rec", this.reclamacao);
@@ -75,6 +75,10 @@ export class RegistroReclamacaoPage {
 
   abrirDados() {
     
+  }
+
+  confirmarReclamacao() {
+    console.log(this.reclamacao);
   }
 
   public carregarCampo(opcao: any) {
