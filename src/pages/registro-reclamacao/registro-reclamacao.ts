@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UtilProvider } from '../../providers/util/util';
 import { LocalStorageProvider } from '../../providers/local-storage/local-storage';
 import { RegistroReclamacaoProvider } from '../../providers/registro-reclamacao/registro-reclamacao';
+import { ModalController } from 'ionic-angular';
+import { ReclamacaoPage } from '../reclamacao/reclamacao';
 
 /**
  * Generated class for the RegistroReclamacaoPage page.
@@ -27,7 +29,8 @@ export class RegistroReclamacaoPage {
     public navParams: NavParams,
     public utilProvider: UtilProvider,
     public localStorageProvider: LocalStorageProvider,
-    public registroReclamacaoProvider: RegistroReclamacaoProvider
+    public registroReclamacaoProvider: RegistroReclamacaoProvider,
+    public modalCtrl: ModalController
   ) {
     this.reclamacao = {};    
     this.carregarEstabelecimentos();
@@ -61,11 +64,27 @@ export class RegistroReclamacaoPage {
     )
   }
 
-  public carregarOpcao(opcao: any) {
+  carregarForm() {
+    let modal = this.modalCtrl.create(ReclamacaoPage);
+    modal.onDidDismiss(data => {
+      this.reclamacao.data = data;
+      console.log("rec", this.reclamacao);
+    });
+    modal.present();
+  }
+
+  abrirDados() {
+    
+  }
+
+  public carregarCampo(opcao: any) {
     this.utilProvider.abreLoading();
     console.log(this.reclamacao);
     if (this.reclamacao.estabelecimento) {
       this.carregarReclamacoes(this.reclamacao.estabelecimento); 
+    }
+    if(this.reclamacao.tipo) {
+      this.carregarForm();
     }
     this.utilProvider.fechaLoading();
   }

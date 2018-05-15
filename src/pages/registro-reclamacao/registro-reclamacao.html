@@ -17,9 +17,9 @@
   <ion-list>
     <ion-item-divider color="light">Estabelecimento</ion-item-divider>
     <ion-item>
-      <ion-select [(ngModel)]="reclamacao.estabelecimento" (ionChange)="carregarOpcao($event);" >
-          <ion-option selected disabled>Selecione um estabelecimento</ion-option>
-          <ion-option *ngFor="let x of estabelecimentos" [value]="x.uid">{{x.estabelecimento}}</ion-option>
+      <ion-select [(ngModel)]="reclamacao.estabelecimento" (ionChange)="carregarCampo($event);">
+        <ion-option selected disabled>Selecione um estabelecimento</ion-option>
+        <ion-option *ngFor="let x of estabelecimentos" [value]="x.uid">{{x.estabelecimento}}</ion-option>
       </ion-select>
     </ion-item>
   </ion-list>
@@ -27,11 +27,24 @@
   <ion-list *ngIf="reclamacao.estabelecimento">
     <ion-item-divider color="light">Reclamação</ion-item-divider>
     <ion-item>
-      <ion-select [(ngModel)]="reclamacao.tipo" (ionChange)="carregarOpcao($event);">
-          <ion-option selected disabled>Selecione o tipo de reclamação</ion-option>
+      <ion-select [(ngModel)]="reclamacao.tipo" (ionChange)="carregarCampo($event);">
+        <ion-option selected disabled>Selecione o tipo de reclamação</ion-option>
         <ion-option *ngFor="let x of reclamacoes" [value]="x.uid" [selected]="x.uid == 0">{{x.reclamacao}}</ion-option>
       </ion-select>
     </ion-item>
   </ion-list>
+
+  <ion-list *ngIf="reclamacao.data">
+    <ion-item-divider color="light">Dados da Reclamação</ion-item-divider>
+    <ion-item>
+      <button name='btn-dados' class='col s12 btn btn waves-effect indigo' (click)="abrirDados()">Exibir dados</button>
+    </ion-item>
+  </ion-list>
+
+  <!-- <div class='row' *ngIf="reclamacao.estabelecimento">
+      <div class='col'>
+        <button name='btn-dados' class='col s12 btn btn waves-effect indigo' (click)="abrirDados()">Exibir dados</button>
+      </div>
+    </div> -->
 
 </ion-content>

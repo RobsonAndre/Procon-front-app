@@ -23,6 +23,7 @@ import { LocalStorageProvider } from '../providers/local-storage/local-storage';
 import { CadastroPage } from '../pages/cadastro/cadastro';
 import { RegistroReclamacaoPage } from '../pages/registro-reclamacao/registro-reclamacao';
 import { RegistroReclamacaoProvider } from '../providers/registro-reclamacao/registro-reclamacao';
+import { ReclamacaoPage } from '../pages/reclamacao/reclamacao';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { RegistroReclamacaoProvider } from '../providers/registro-reclamacao/reg
     ProcessosPage,
     IntroPage,
     CadastroPage,
-    RegistroReclamacaoPage
+    RegistroReclamacaoPage,
+    ReclamacaoPage
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,8 @@ import { RegistroReclamacaoProvider } from '../providers/registro-reclamacao/reg
     ProcessosPage, 
     IntroPage,
     CadastroPage,
-    RegistroReclamacaoPage
+    RegistroReclamacaoPage,
+    ReclamacaoPage
   ],
   providers: [
     StatusBar,
