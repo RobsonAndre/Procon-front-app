@@ -50,6 +50,12 @@
 
   <div class='row' *ngIf="reclamacao.descricao">
     <div class='col'>
+      <button name='btn-reclamacao' class='col s12 btn btn waves-effect indigo' (click)="escolherAnexo()">Adicionar anexo</button>
+    </div>
+  </div>
+
+  <div class='row' *ngIf="reclamacao.descricao">
+    <div class='col'>
       <button type='submit' name='btn-reclamacao' class='col s12 btn btn waves-effect indigo' (click)="confirmarReclamacao()">Salvar reclamação</button>
     </div>
   </div>
