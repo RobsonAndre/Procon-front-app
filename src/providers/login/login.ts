@@ -12,8 +12,7 @@ export class LoginProvider {
 
   //End Points
   private baseLoginPath      = "http://papiroweb.com.br/integra/login/";
-  private baseTokenPath      = "http://papiroweb.com.br/integra/token/";
-
+  
   constructor(public http: HttpClient) {
     console.log('Hello LoginProvider Provider');
   }

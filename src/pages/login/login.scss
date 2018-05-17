@@ -19,7 +19,9 @@ page-login {
 
     /* Geral */
         .app {
-            background-color: #d0d4f4;
+            background-color: #006;
+            background: url(../assets/imgs/bg/bg-main.jpg) #006 center bottom;
+            background-size:cover;
         }
         button {
             text-transform: capitalize !important;
@@ -69,7 +71,7 @@ page-login {
             // border: 5px solid $bd-color-second
         }        
         .container-login{
-            margin-top:30px; 
+            margin-top:10px; 
         }
         ion-card-content .row:last-child, form .row:last-child {
             margin-bottom: 0;
@@ -107,5 +109,13 @@ page-login {
             margin: 0;
         }
 
+        .btn-login{
+            font-size: 10px !important;
+            color: #006;
+        }
+        .input-login{
+            font-size: 16px !important; 
+            height:26px !important;
+        }
     /* /Card Formulário */
 }
