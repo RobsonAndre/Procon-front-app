@@ -28,23 +28,29 @@ export class ReclamacaoPage {
   }
 
   public preencherCampos() {
-    // let dadosReclamacao = {
-    //   banco: this.reclamacao.banco,
-    //   agencia: this.reclamacao.agencia,
-    //   data: this.reclamacao.data,
-    //   hora: this.substituirString(this.reclamacao.hora),
-    //   espera: this.reclamacao.espera,
-    //   atendido: this.reclamacao.atendido
-    //}
+    let dadosReclamacao = {
+      banco: this.reclamacao.banco,
+      agencia: this.reclamacao.agencia,
+      data: this.formatarData(this.reclamacao.data),
+      hora: this.formatarHora(this.reclamacao.hora),
+      espera: this.reclamacao.espera,
+      atendido: this.reclamacao.atendido
+    }
 
     //this.localStorageProvider.setDataReclamacao(this.reclamacao);
     //console.log(this.reclamacao);
-    //console.log("dados",dadosReclamacao);
+    console.log("dados",dadosReclamacao);
     this.dismissWithData(this.reclamacao);
   }
 
-  substituirString(v) {
-    return v.replace(/[\. ,:-]+/g, "-");
+  formatarHora(h) {
+    return h.replace(/[\. ,:-]+/g, "-");
+  }
+
+  formatarData(d) {
+    let x = d.split("-");
+    let y = x.reverse();
+    return y.join("-");
   }
 
   dismissWithData(data) {

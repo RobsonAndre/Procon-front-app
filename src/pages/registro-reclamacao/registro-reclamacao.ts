@@ -27,12 +27,15 @@ export class RegistroReclamacaoPage {
   public reclamacao: any;
   public estabelecimentos: any;
   public reclamacoes: any;
+  public enableAnexo: any;
+  public reclamacaoGravada: any;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public utilProvider: UtilProvider,
     public registroReclamacaoProvider: RegistroReclamacaoProvider,
+    public localStorageProvider: LocalStorageProvider,
     public modalCtrl: ModalController,
     public actionSheetCtrl: ActionSheetController,
     private alertCtrl: AlertController,
@@ -71,7 +74,8 @@ export class RegistroReclamacaoPage {
     )
   }
 
-  carregarForm() {
+  // MUDAR VISIBILDADE QUANDO A FUNÇÃO FOR CARREGADA DINAMICAMENTE
+  public carregarForm() {
     let modal = this.modalCtrl.create(ReclamacaoPage);
     //console.log("rec before", this.reclamacao);
     modal.onDidDismiss(data => {
@@ -81,56 +85,70 @@ export class RegistroReclamacaoPage {
     modal.present();
   }
 
-  abrirDados() {
+  // abrirDados() {
 
-  }
+  // }
 
   confirmarReclamacao() {
+    // CONSERTAR FUNÇÃO DE GRAVAÇÃO NO PROVIDER 
+    // this.registroReclamacaoProvider.saveReclamacao(this.reclamacao).subscribe(
+    //   data => {
+    //     let obj: any = data;
+    //     if(obj.success) {
+    //       this.reclamacaoGravada = obj;
+    //       this.localStorageProvider.setUserData(this.reclamacaoGravada);
+    //     }
+    //   }
+    // )
     console.log(this.reclamacao);
   }
 
   public escolherAnexo() {
-    const options: CameraOptions = {
-      quality: 100,
-      destinationType: this.camera.DestinationType.DATA_URL, //FILE_URI, NATIVE_URI, or DATA_URL. DATA_URL could produce memory issues. 
-      //sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-      encodingType: this.camera.EncodingType.JPEG,
-      allowEdit: true,
-      targetWidth: 300,
-      targetHeight: 300,
-      saveToPhotoAlbum: false,
-    };
-
-    let actionSheet = this.actionSheetCtrl.create({
-      title: 'Adicionar anexo',
-      buttons: [
-        {
-          text: 'Camera',
-          handler: () => {
-            console.log('Camera clicked');
-            options.sourceType = this.camera.PictureSourceType.CAMERA;
-            this.adicionarAnexo(options);
-          }
-        },
-        {
-          text: 'Galeria',
-          handler: () => {
-            console.log('Galeria clicked');
-            options.sourceType = this.camera.PictureSourceType.PHOTOLIBRARY;
-            this.adicionarAnexo(options);
-          }
-        },
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancelar clicked');
-          }
-        }
-      ]
-    });
     
-    actionSheet.present();
+      const options: CameraOptions = {
+        quality: 100,
+        destinationType: this.camera.DestinationType.DATA_URL, //FILE_URI, NATIVE_URI, or DATA_URL. DATA_URL could produce memory issues. 
+        //sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+        encodingType: this.camera.EncodingType.JPEG,
+        allowEdit: true,
+        targetWidth: 300,
+        targetHeight: 300,
+        saveToPhotoAlbum: false,
+      };
+
+
+      let actionSheet = this.actionSheetCtrl.create({
+        title: 'Adicionar anexo',
+        buttons: [
+          {
+            text: 'Camera',
+            handler: () => {
+              console.log('Camera clicked');
+              options.sourceType = this.camera.PictureSourceType.CAMERA;
+              this.adicionarAnexo(options);
+            }
+          },
+          {
+            text: 'Galeria',
+            handler: () => {
+              console.log('Galeria clicked');
+              options.sourceType = this.camera.PictureSourceType.PHOTOLIBRARY;
+              this.adicionarAnexo(options);
+            }
+          },
+          {
+            text: 'Cancelar',
+            role: 'cancel',
+            handler: () => {
+              console.log('Cancelar clicked');
+            }
+          }
+        ]
+      });
+
+      actionSheet.present();
+    
+    console.log(this.reclamacao);
 
   }
 
@@ -141,7 +159,8 @@ export class RegistroReclamacaoPage {
     }, (err) => {
       this.alertaErro();
     }
-  )}
+    )
+  }
 
   alertaErro() {
     let alert = this.alertCtrl.create({
@@ -158,9 +177,9 @@ export class RegistroReclamacaoPage {
     if (this.reclamacao.estabelecimento) {
       this.carregarReclamacoes(this.reclamacao.estabelecimento);
     }
-    if (this.reclamacao.tipo) {
-      this.carregarForm();
-    }
+    // if (this.reclamacao.tipo) {
+    //   this.carregarForm();
+    // }
     this.utilProvider.fechaLoading();
   }
 

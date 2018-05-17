@@ -34,27 +34,34 @@
     </ion-item>
   </ion-list>
 
-  <ion-list *ngIf="reclamacao.data">
+  <!--<ion-list *ngIf="reclamacao.data"> //MUDAR O BOTÃO PARA EDITAR DADOS  -->
+  <ion-list *ngIf="reclamacao.tipo">
     <ion-item-divider color="light">Dados da Reclamação</ion-item-divider>
     <ion-item>
-      <button name='btn-dados' class='col s12 btn btn waves-effect indigo' (click)="abrirDados()">Editar dados</button>
+      <button name='btn-dados' class='col s12 btn btn waves-effect indigo' (click)="carregarForm()">Adicionar dados</button>
     </ion-item>
   </ion-list>
 
   <ion-list *ngIf="reclamacao.data">
     <ion-item-divider color="light">Descrição</ion-item-divider>
     <ion-item>
-      <ion-textarea placeholder="Descrição da reclamação" [(ngModel)]="reclamacao.descricao"></ion-textarea>
+      <ion-textarea placeholder="Descrição da reclamação" [(ngModel)]="reclamacao.queixa"></ion-textarea>
     </ion-item>
   </ion-list>
 
-  <div class='row' *ngIf="reclamacao.descricao">
-    <div class='col'>
-      <button name='btn-reclamacao' class='col s12 btn btn waves-effect indigo' (click)="escolherAnexo()">Adicionar anexo</button>
-    </div>
-  </div>
+  <ion-list *ngIf="reclamacao.queixa">
+    <ion-item-divider color="light">Anexos</ion-item-divider>
+    <ion-item>
+      <ng-container *ngIf="reclamacao.anexos.length <= 2; else desabilitarAnexos">
+        <button name='btn-reclamacao' class='col s12 btn btn waves-effect indigo' (click)="escolherAnexo()">Adicionar anexo</button>
+      </ng-container>
+      <ng-template #desabilitarAnexos>
+        <button name='btn-reclamacao' class='col s12 btn btn waves-effect indigo' (click)="escolherAnexo()" disabled>Adicionar anexo</button>
+      </ng-template>
+    </ion-item>
+  </ion-list>
 
-  <div class='row' *ngIf="reclamacao.descricao">
+  <div class='row' *ngIf="reclamacao.queixa">
     <div class='col'>
       <button type='submit' name='btn-reclamacao' class='col s12 btn btn waves-effect indigo' (click)="confirmarReclamacao()">Salvar reclamação</button>
     </div>
