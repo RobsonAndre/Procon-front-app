@@ -1,3 +1,12 @@
+    /* Toast */
+    ion-toast.error .toast-wrapper {
+        background: rgba(247, 59, 59, 0.95) !important;
+    }
+    ion-toast.error .toast-wrapper button {
+        background-color: transparent;
+    }
+    /* /Toast */
+
 page-cadastro {
     /* Vars */
         /* background */
@@ -5,6 +14,15 @@ page-cadastro {
         $bg-color-second  : #303f9f;
         $bg-color-third   : #3f51b5;
     /* /Vars */
+
+    /* Geral */
+
+    label, input, .input-field label.active {
+        font-size: 14px !important; 
+        height:26px !important;
+    }
+
+    /* /Geral */
 
     /* Card */
     .card-cadastro{
@@ -15,7 +33,7 @@ page-cadastro {
         text-transform: capitalize !important;
         padding: 0 !important;
         font-size: 14px !important;
-    }
-    
-/* /card */
+    }    
+    /* /Card */
+
 }
