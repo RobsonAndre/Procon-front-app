@@ -84,9 +84,8 @@
                 || cadastro.email == undefined
                 || cadastro.senha == undefined
                 || cadastro.senha_validacao == undefined
-                ;
+                || cadastro.termo == undefined;
               else formPreenchido">
-              <!-- || cadastro.termo == undefined -->
                 <button type='submit' name='btn-cadastro' class='col s12 btn btn waves-effect indigo' (click)="realizaCadastro()" disabled>Cadastrar</button>
               </ng-container>
               <ng-template #formPreenchido>
