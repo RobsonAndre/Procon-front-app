@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
 import { CadastroProvider } from '../../providers/cadastro/cadastro';
 import { LoginPage } from '../login/login';
+import { UtilProvider } from '../../providers/util/util';
 
 /**
  * Generated class for the CadastroPage page.
@@ -27,7 +28,8 @@ export class CadastroPage {
     public navParams: NavParams,
     public viewCtrl: ViewController,
     public toastCtrl: ToastController,
-    public cadastroProvider: CadastroProvider
+    public cadastroProvider: CadastroProvider,
+    public utilProvider: UtilProvider
   ) {
     this.cadastro = {
       termos: false
@@ -67,7 +69,7 @@ export class CadastroPage {
 
   public realizaCadastro() {
     this.cpfValido = this.validaCPF(this.cadastro.cpf);
-    this.senhaValida = this.verificaSenha(this.cadastro.senha, this.cadastro.senha_validacao);
+    this.senhaValida = this.verificaSenha(this.cadastro.senha, this.cadastro.senha_validacao);    
 
     let dadosCadastro = {
       nome: this.cadastro.nome.trim(),
@@ -75,20 +77,29 @@ export class CadastroPage {
       email: this.cadastro.email,
       senha: this.cadastro.senha,
       //senha_validacao: this.senhaValida ,
-      //termos: this.cadastro.termos
+      termo: this.verificarTermo(this.cadastro.termo)
     }
 
-    if(!this.cpfValido && !this.cpfValido) {
-      this.toastErro("Os campos CPF e Confirmação de senha estão inválidos.")
-    } else if (!this.senhaValida) {
-      this.toastErro("As senhas digitadas não são as mesmas.")
-    } else if(!this.cpfValido) {
-      this.toastErro("O CPF digitado é inválido.")
-    } else {
-      this.verificaCadastro(dadosCadastro);      
-    }
+    // if(!this.cpfValido) {
+    //   this.toastErro("CPF em branco ou inválido.")
+    // } else if (!this.senhaValida) {
+    //   this.toastErro("Senha em branco ou inválida, a senha deve conter de 8 a 15 caracteres.")
+    // } else if(!this.cpfValido && !this.cpfValido) {
+    //   this.toastErro("Os campos CPF e Confirmação de senha estão inválidos.")
+    // } else {
+    //   console.log("dados",dadosCadastro);
+    //   this.verificaCadastro(dadosCadastro);      
+    // }
+
+    this.verificaCadastro(dadosCadastro);
 
     console.log('a', dadosCadastro);    
+  }
+
+  verificarTermo(termo) {
+    if(termo == true) {
+      return 1;
+    } else return 0;
   }
 
   verificaCadastro(dadosCadastro) {
@@ -97,7 +108,10 @@ export class CadastroPage {
         let obj: any = data;
         if (obj.success) {
           this.dismiss();
+          this.utilProvider.showToast("Cadastro realizado com sucesso!");
           this.navCtrl.setRoot(LoginPage);
+        } else {
+          this.toastErro(obj.info);
         }
         console.log('suc: ' + JSON.stringify(obj));
       }, error => {

@@ -22,7 +22,7 @@ export class CadastroProvider {
   saveCadastro(cadastro) {
         
     let action = 1;
-    return this.http.get(this.baseCadastroPath+`?action=${action}&nome=${cadastro.nome}&cpf=${cadastro.cpf}&email=${cadastro.email}&senha=${cadastro.senha}`)
+    return this.http.get(this.baseCadastroPath+`?action=${action}&nome=${cadastro.nome}&cpf=${cadastro.cpf}&email=${cadastro.email}&senha=${cadastro.senha}&termo=${cadastro.termo}`)
     
   }
 
