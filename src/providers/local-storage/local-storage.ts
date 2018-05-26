@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 
 let USRKEY = "user";
 //let RECLKEY = "reclamacao";
-let RECLDATA = "dados";
+let RECLDATA = "reclamacao";
 
 @Injectable()
 export class LocalStorageProvider {
@@ -53,14 +53,27 @@ export class LocalStorageProvider {
   }
 
   public getDataReclamacao(): any {
+    /**/
     let reclamacao:any = JSON.parse(localStorage.getItem(RECLDATA));
     if(reclamacao==null){
-      /**/
-      reclamacao = {}
+      reclamacao = {
+        'uid': '',
+        'status':'',
+        'data_registro':'',
+        'estabelecimento':'',
+        'reclamacao':'',
+        'banco':'',
+        'data_ocorrencia':'',
+        'tempo_espera':'',
+        'atendido':'',
+        'queixa':'',
+        'anexos':[]  
+      }
       this.setDataReclamacao(reclamacao);
-      /**/
+      
     }
     return reclamacao;
+    /**/
   }
 
   public cleanDataReclamacao(){

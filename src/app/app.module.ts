@@ -24,6 +24,10 @@ import { CadastroPage } from '../pages/cadastro/cadastro';
 import { RegistroReclamacaoPage } from '../pages/registro-reclamacao/registro-reclamacao';
 import { RegistroReclamacaoProvider } from '../providers/registro-reclamacao/registro-reclamacao';
 import { ReclamacaoPage } from '../pages/reclamacao/reclamacao';
+import { Camera } from '@ionic-native/camera';
+import { FileTransfer } from '@ionic-native/file-transfer';
+import { ReclamacaoAnexosPageModule } from '../pages/reclamacao-anexos/reclamacao-anexos.module';
+import { RegistroReclamacaoPageModule } from '../pages/registro-reclamacao/registro-reclamacao.module';
 
 @NgModule({
   declarations: [
@@ -37,13 +41,14 @@ import { ReclamacaoPage } from '../pages/reclamacao/reclamacao';
     ProcessosPage,
     IntroPage,
     CadastroPage,
-    RegistroReclamacaoPage,
-    ReclamacaoPage
+    ReclamacaoPage,
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    RegistroReclamacaoPageModule,
+    ReclamacaoAnexosPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -57,12 +62,11 @@ import { ReclamacaoPage } from '../pages/reclamacao/reclamacao';
     ProcessosPage, 
     IntroPage,
     CadastroPage,
-    RegistroReclamacaoPage,
     ReclamacaoPage
   ],
   providers: [
     StatusBar,
-    SplashScreen,
+    SplashScreen, Camera, FileTransfer,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UtilProvider,
     LoginProvider,

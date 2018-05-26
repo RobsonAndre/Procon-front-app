@@ -13,57 +13,115 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-item-divider color="light">Estabelecimento</ion-item-divider>
-    <ion-item>
-      <ion-select [(ngModel)]="reclamacao.estabelecimento" (ionChange)="carregarCampo($event);">
-        <ion-option selected disabled>Selecione um estabelecimento</ion-option>
-        <ion-option *ngFor="let x of estabelecimentos" [value]="x.uid">{{x.estabelecimento}}</ion-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
+<ion-content class="reclamacao">
 
-  <ion-list *ngIf="reclamacao.estabelecimento">
-    <ion-item-divider color="light">Reclamação</ion-item-divider>
-    <ion-item>
-      <ion-select [(ngModel)]="reclamacao.tipo" (ionChange)="carregarCampo($event);">
-        <ion-option selected disabled>Selecione o tipo de reclamação</ion-option>
-        <ion-option *ngFor="let x of reclamacoes" [value]="x.uid" [selected]="x.uid == 0">{{x.reclamacao}}</ion-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
 
-  <!--<ion-list *ngIf="reclamacao.data"> //MUDAR O BOTÃO PARA EDITAR DADOS  -->
-  <ion-list *ngIf="reclamacao.tipo">
-    <ion-item-divider color="light">Dados da Reclamação</ion-item-divider>
-    <ion-item>
-      <button name='btn-dados' class='col s12 btn btn waves-effect indigo' (click)="carregarForm()">Adicionar dados</button>
-    </ion-item>
-  </ion-list>
+  <div class="card-reclamacao">
+    
+    <div class="row card-reclamacao-btn">
+      <div class="col">
+          <button class="btn-floating waves-effect waves-light teal darken-4">
+            <i class="material-icons">home</i>
+          </button>
+      </div>
+    </div>
+    
+  </div>
 
-  <ion-list *ngIf="reclamacao.data">
-    <ion-item-divider color="light">Descrição</ion-item-divider>
-    <ion-item>
-      <ion-textarea placeholder="Descrição da reclamação" [(ngModel)]="reclamacao.queixa"></ion-textarea>
-    </ion-item>
-  </ion-list>
 
-  <ion-list *ngIf="reclamacao.queixa">
-    <ion-item-divider color="light">Anexos</ion-item-divider>
-    <ion-item>
-      <ng-container *ngIf="reclamacao.anexos.length <= 2; else desabilitarAnexos">
-        <button name='btn-reclamacao' class='col s12 btn btn waves-effect indigo' (click)="escolherAnexo()">Adicionar anexo</button>
-      </ng-container>
-      <ng-template #desabilitarAnexos>
-        <button name='btn-reclamacao' class='col s12 btn btn waves-effect indigo' (click)="escolherAnexo()" disabled>Adicionar anexo</button>
-      </ng-template>
-    </ion-item>
-  </ion-list>
+  <div>
+    <div class="row">
+      <div class="col" style="margin-top: 20px;">
 
-  <div class='row' *ngIf="reclamacao.queixa">
-    <div class='col'>
-      <button type='submit' name='btn-reclamacao' class='col s12 btn btn waves-effect indigo' (click)="confirmarReclamacao()">Salvar reclamação</button>
+        <table *ngIf="reclamacao">
+          <tr class="reclamacao-tr waves-effect waves-light">
+            <td class="td-icon">
+              <i class="material-icons">
+                account_balance
+              </i>
+            </td>
+            <td class="td-txt">
+              <div class="div-title">Estabelecimento:</div>
+              <div class="div-select">{{reclamacao.estabelecimento?reclamacao.estabelecimento:'Selecione um estabelecimento'}}</div>
+            </td>
+            <td class="td-btn">
+              <i class="material-icons">
+                chevron_right
+              </i>
+            </td>
+          </tr>
+          <tr class="reclamacao-tr waves-effect waves-light">
+            <td class="td-icon">
+              <i class="material-icons">
+                announcement
+              </i>
+            </td>
+            <td class="td-txt">
+              <div class="div-title">Reclamação:</div>
+              <div class="div-select">{{reclamacao.reclamacao?reclamacao.reclamacao:'Selecione uma reclamação'}}</div>
+            </td>
+            <td class="td-btn">
+              <i class="material-icons">
+                chevron_right
+              </i>
+            </td>
+          </tr>
+          <tr class="reclamacao-tr waves-effect waves-light">
+            <td class="td-icon">
+              <i class="material-icons">
+                list
+              </i>
+            </td>
+            <td class="td-txt">
+              <div class="div-title">Detalhamento:</div>
+              <div class="div-select">{{reclamacao.data_ocorrencia?'OK':'Preencher'}}</div>
+            </td>
+            <td class="td-btn">
+              <i class="material-icons">
+                chevron_right
+              </i>
+            </td>
+          </tr>
+          <tr class="reclamacao-tr waves-effect waves-light">
+            <td class="td-icon">
+              <i class="material-icons">
+                playlist_add_check
+              </i>
+            </td>
+            <td class="td-txt">
+              <div class="div-title">Descrição do fato:</div>
+              <div class="div-select">{{reclamacao.queixa?'OK':'Descrever'}}</div>
+            </td>
+            <td class="td-btn">
+              <i class="material-icons">
+                chevron_right
+              </i>
+            </td>
+          </tr>
+          <tr class="reclamacao-tr waves-effect waves-light" (click)="abrePage('ReclamacaoAnexosPage')">
+            <td class="td-icon">
+              <i class="material-icons">
+                attach_file
+              </i>
+            </td>
+            <td class="td-txt">
+              <div class="div-title">Anexos:</div>
+              <div class="div-select">{{reclamacao.anexos.length? reclamacao.anexos.length + ' anexo(s)':'Anexar'}}</div>
+            </td>
+            <td class="td-btn">
+              <i class="material-icons">
+                chevron_right
+              </i>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <a class="waves-effect waves-light col s12 btn ">Enviar</a>
+      </div>
     </div>
   </div>
+
 </ion-content>

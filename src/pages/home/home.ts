@@ -17,19 +17,14 @@ export class HomePage {
   }
 
 
-  public abrePage(page, options={}){
-    
-    console.log(page);
-    //this.navCtrl.push(page,options);
-  }
-
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
   }
 
-  public novaReclamacao() {
-    this.navCtrl.setRoot(RegistroReclamacaoPage);
+  public abrePage(page, options:{}) {
+    console.log(page);
+    this.navCtrl.push(page);
+    //this.navCtrl.setRoot(RegistroReclamacaoPage);
   }
 
 }

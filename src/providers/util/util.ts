@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LoadingController, ToastController } from 'ionic-angular';
+import { LoadingController, ToastController, Nav, AlertController } from 'ionic-angular';
 
 /*
   Generated class for the UtilProvider provider.
@@ -18,7 +18,8 @@ export class UtilProvider {
   constructor(
     public http: HttpClient,
     public loadingCtrl: LoadingController,
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,
+    private alertCtrl: AlertController
   ) {
     console.log('UtilProvider Ok');
   }
@@ -45,6 +46,31 @@ export class UtilProvider {
     });
 
     toast.present(toast);
+  }
+
+  //Dialogs
+  showConfirm(title,msg) {
+    let confirm = this.alertCtrl.create({
+      title: title,
+      message: msg,
+      buttons: [
+        {
+          text: 'Cancelar',
+          handler: () => {
+            console.log('Cancelar');
+            //return false
+          }
+        },
+        {
+          text: 'Continuar',
+          handler: () => {
+            console.log('Continuar');
+            //return true;
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
   
 }
