@@ -1,0 +1,85 @@
+page-reclamacao-anexos {
+    /* font */   
+    $bg-color-primary : #263238;
+    $bg-color-second  : #37474f;
+    $bg-color-third   : #455a64;
+    /* font */
+    $ft-color-primary : #FFFFFF;
+    $ft-color-second  : #cfd8dc;
+    $ft-color-third   : #b0bec5;
+    /* border */
+    $bd-color-primary : #90a4ae;
+    $bd-color-second  : #b0bec5;
+    $bd-color-third   : #cfd8dc;
+    
+
+    /*toolbar */
+    .toolbar .toolbar-background {
+        background-color: $bg-color-primary;
+    }
+    .toolbar .toolbar-title{
+        color: $ft-color-primary;
+        font-family: 'Open Sans',  sans-serif;
+        font-weight: 600;
+        //font-size: 18px;
+        text-align: center;
+    }
+    .toolbar .toolbar-background-footer{
+        background-color: $bg-color-primary;
+        padding: 10px;
+    }
+    .toolbar .disable-hover{
+        background-color: $bg-color-second;
+        color:$ft-color-primary
+    }
+    .toolbar button{
+        background-color: $bg-color-primary !important;
+        color: $ft-color-second;
+    }
+
+    .anexos{
+        background-color: $bg-color-second;
+    }
+
+    .anexos-title{
+        color: $ft-color-second;
+        padding: 5px;
+        margin: 5px;
+        margin-top: 70px;
+        border-bottom: 1px solid $bd-color-primary;
+    }
+    .row-anexo{
+        margin: 10px;
+    }
+    .row-anexo .col{
+        padding-top: 5px ;
+        margin: 5px;
+    }
+    .col-anexo{
+        color: $ft-color-second;
+        padding: 5px;
+        margin: 5px;
+        border: 1px solid $bd-color-primary;
+        text-align: center;
+        width:33%;
+    }
+    .col-anexo i{
+        padding: 10px 0px;
+        font-size: 40px;
+    }
+
+    .col-imagem{
+        color: $ft-color-second;
+        padding-bottom: 5px;
+        margin: 5px;
+        border: 1px solid $bd-color-primary;
+        height: auto;
+        width:33%;
+    }
+    .col-imagem img{
+        width:100%;
+        padding:0px !important;
+        margin:0px !important;
+        border:0px solid #00F;   
+    }
+}

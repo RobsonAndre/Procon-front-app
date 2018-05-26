@@ -1,0 +1,72 @@
+<!--
+  Generated template for the ReclamacaoAnexosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Anexos</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="fechaPage()">
+        <i class="material-icons">close</i>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="anexos" *ngIf="reclamacao">
+  <div>
+    <div class="row">
+      <div class="col anexos-title">
+        Itens Anexados: 
+      </div>
+    </div>
+    
+    <div class="row row-anexo">
+      
+      <!-- Itens ja anexados -->
+      <div class="col col-imagem black-shadow" *ngFor="let anexo of anexos; let i = index" (click)="delAnexo(i)" >
+        <img [src]="'http://www.papiroweb.com.br/integra/imagens/upload/' + anexo" >
+      </div>
+      <!--Itens as serem anexados -->
+      <div class="col s4 col-anexo black-shadow" (click)="getImage()" *ngIf="anexos.length==0">
+        <i class="material-icons">
+          add
+        </i>
+      </div>
+      <div class="col s4 col-anexo black-shadow" (click)="getImage()" *ngIf="anexos.length<=1">
+        <i class="material-icons">
+          add
+        </i>
+      </div>
+      <div class="col s4 col-anexo black-shadow" (click)="getImage()" *ngIf="anexos.length<=2">
+        <i class="material-icons">
+          add
+        </i>
+      </div>
+      <!-- -->
+      
+    </div>
+  </div>
+
+  <div>
+    <div class="row" *ngIf="imageURI">
+      <div class="col">
+        <ion-item>
+          <h4>Image Preview</h4>
+        </ion-item>
+        <ion-item>
+          <div>
+            <img src="{{imageURI}}" *ngIf="imageURI" alt="Ionic File" width="300" />
+          </div>
+          <div>
+            <button class="waves-effect waves-light col s12 btn " (click)="uploadFile()">Salvar</button>
+          </div>
+        </ion-item>
+      </div>
+    </div>
+
+  </div>
+</ion-content>
