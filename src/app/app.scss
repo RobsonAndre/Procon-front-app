@@ -41,6 +41,11 @@
         color: $ft-color-second;
     }
 
+    label, input, .input-field label.active {
+        font-size: 14px !important; 
+        height:26px !important;
+    }
+
     .black-shadow{
         /**/
         -webkit-box-shadow: 4px 4px 4px -1px rgba(0,0,0,0.5);

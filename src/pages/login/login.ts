@@ -57,8 +57,10 @@ export class LoginPage {
           this.navCtrl.setRoot(HomePage);
         }
         console.log('suc: ' + JSON.stringify(obj));
+        this.utilProvider.showToast(obj.status_message)
+        this.login = {};
       }, error => {
-        console.log('err: ' + JSON.stringify(error));
+        console.log('err: ' + JSON.stringify(error));        
       });
   }
 

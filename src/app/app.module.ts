@@ -29,6 +29,9 @@ import { FileTransfer } from '@ionic-native/file-transfer';
 import { ReclamacaoAnexosPageModule } from '../pages/reclamacao-anexos/reclamacao-anexos.module';
 import { RegistroReclamacaoPageModule } from '../pages/registro-reclamacao/registro-reclamacao.module';
 
+
+import { CadastroProvider } from '../providers/cadastro/cadastro';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -71,7 +74,8 @@ import { RegistroReclamacaoPageModule } from '../pages/registro-reclamacao/regis
     UtilProvider,
     LoginProvider,
     LocalStorageProvider,
-    RegistroReclamacaoProvider
+    RegistroReclamacaoProvider,
+    CadastroProvider
   ]
 })
 export class AppModule {}
